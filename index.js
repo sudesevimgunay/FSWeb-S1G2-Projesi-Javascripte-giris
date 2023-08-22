@@ -41,8 +41,8 @@ Aşağıdakileri yap:
 */
  let birinciDeger = 20
  let ikinciDeger = 80
- if (birinciDeger<ikinciDeger){
-  birinciDeger=ikinciDeger;
+ if (ikinciDeger>birinciDeger){
+  birinciDeger= 40;
  }
  console.log(birinciDeger);
 /*
@@ -87,12 +87,14 @@ Aşağıdakileri yap:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(humanAge) {
-  
- 
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(yas) {
 
+  let kopekYas=yas*7
+  return kopekYas ;
+  /*buraya kodunu yazabilirsin*/
 }
+console.log(kopeginYasi(5));
+
 
 /* Görev 3 */
 /*
@@ -110,17 +112,31 @@ OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı ye
 
 function oyun(oyuncu, bilgisayar) {
 
-  
-  /*buraya kodunu yazabilirsin*/
+  if (oyuncu==="Taş" && bilgisayar==="Makas"){
+    return "Kazandın!";
+  }else if (oyuncu==="Kağıt" && bilgisayar==="Taş"){
+    return "Kazandın!" ;
+  }else if (oyuncu==="Makas" && bilgisayar==="Kağıt"){
+    return "Kazandın!";
+  }else if (oyuncu===bilgisayar){
+    return "Beraberlik";
+  }else {
+    return "Kaybettin!";
+  }
+ /*buraya kodunu yazabilirsin*/
 }
 
 function bilgisayarinSecimi(){
-  let bilgisayarSecimi = Math.random()
+  let bilgisayarSecimi =Math.floor(Math.random()*3)
   if (bilgisayarSecimi===0){
-    return "Taş"
+    return "Taş";
+  } if(bilgisayarSecimi===1){
+    return "Kağıt";
+  }if (bilgisayarSecimi===2){
+    return "Makas";
   }
-  return bilgisayarSecimi
 }
+console.log(oyun("Kağıt",bilgisayarinSecimi()));
 
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
 /*
@@ -148,9 +164,12 @@ Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamla:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/) {
+function milDonusturucu(km) {
+  let kmHesaplama =km*0.621371 ;
+  return kmHesaplama;
   /*buraya kodunu yazabilirsin*/
 }
+console.log(milDonusturucu(5));
 
 //Görev 4b - Santimetreden Feet
 /*
@@ -162,9 +181,13 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yap:
 Google'da arama ipucu: "feet cm dönüştürme"
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/) {
+function feetDonusturucu(cm) {
+
+  let cmHesaplama = cm/ 30.48 ;
+  return cmHesaplama;
   /*buraya kodunu yazabilirsin*/
 }
+console.log(feetDonusturucu(80));
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
 
@@ -179,8 +202,14 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yap:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/) {
+function cocukSarkisi(sayı) {
+  return sayı + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!"
+
   /*buraya kodunu yazabilirsin*/
+}
+console.log(cocukSarkisi(5));
+for(let i=0; i<5; i++){
+  console.log(i,cocukSarkisi(5-i));
 }
 
 /* Görev 6 : Not Hesaplayıcı */
@@ -198,7 +227,20 @@ Aşağdakileri notHesapla fonksiyonunda yap.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/) {
+function notHesapla(not) {
+
+  if (not>=90 && not<=100){
+    return "A aldın";
+  }else if( not>=80 && not<=89){
+    return "B aldın";
+  }else if (not>=70 && not<=79){
+    return "C aldın";
+  }else if (not>=60 && not<=69){
+    return "D aldın";
+  }else {
+    return "F aldın";
+  }
+  
   /*buraya kodunu yazabilirsin*/
 }
 
@@ -213,9 +255,28 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
+function sesliHarfSayaci(kelime) {
+
+  kelime=kelime.toLowerCase();
+  const sesliHarfler=["a","e","ı","i","o","ö","u","ü"];
+
+let sesliHarfSayısı=0;
+
+  for (let i=0; i<kelime.length; i++){
+    if(sesliHarfler .includes(kelime[i])){
+      sesliHarfSayısı++;
+    }
+  }
+
+  return sesliHarfSayısı;
   /*buraya kodunu yazabilirsin*/
 }
+console.log(sesliHarfSayaci("Merhaba"));
+console.log(sesliHarfSayaci("Sude"));
+
+
+
+
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
 function sa() {
